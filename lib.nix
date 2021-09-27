@@ -22,6 +22,8 @@
         DENO_DIR = "${xdg.cacheHome}/deno-cache";
         DENO_INSTALL_ROOT = "${xdg.cacheHome}/deno";
         ELM_HOME = "${xdg.cacheHome}/elm";
+        GTK_RC_FILES = "${xdg.configHome}/gtk-1.0/gtkrc";
+        GTK2_RC_FILES = "${xdg.configHome}/gtk-2.0/gtkrc";
         GEM_HOME = gemHome;
         GEM_PATH = "$GEM_PATH:${gemHome}";
         GRADLE_USER_HOME = "${xdg.cacheHome}/gradle";
