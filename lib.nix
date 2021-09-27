@@ -7,7 +7,7 @@
 
       home.activation = {
         redis-cache-prep = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-          $DRY_RUN_CMD mkdir $VERBOSE_ARG -p '${xdg.cacheHome}/redis' '${xdg.cacheHome}/less' '{xdg.cacheHome}/X11'
+          $DRY_RUN_CMD mkdir $VERBOSE_ARG -p '${xdg.cacheHome}/redis' '${xdg.cacheHome}/less' '${xdg.cacheHome}/X11' '${xdg.cacheHome}/mysql'
         '';
       };
 

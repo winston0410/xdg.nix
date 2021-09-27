@@ -1,7 +1,7 @@
 {
   description = "xdg.nix, the flake for XDG compliance in NixOS";
 
-  outputs = { self, nixpkgs }: {
+  outputs = inputs: {
     lib = (import ./lib.nix);
   };
 }
