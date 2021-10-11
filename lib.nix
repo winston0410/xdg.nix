@@ -6,8 +6,10 @@
       xdg = { enable = true; };
 
       home.activation = {
-        redis-cache-prep = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        prep = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
           $DRY_RUN_CMD mkdir $VERBOSE_ARG -p '${xdg.cacheHome}/redis' '${xdg.cacheHome}/less' '${xdg.cacheHome}/X11' '${xdg.cacheHome}/mysql'
+            
+          $DRY_RUN_CMD mkdir $VERBOSE_ARG -p '${xdg.dataHome}/redis' '${xdg.dataHome}/less' '${xdg.dataHome}/X11' '${xdg.dataHome}/mysql' '${xdg.dataHome}/sqlite' '${xdg.dataHome}/pg' '${xdg.dataHome}/node'
         '';
       };
 
@@ -29,26 +31,27 @@
         GRADLE_USER_HOME = "${xdg.cacheHome}/gradle";
         GOPATH = "${xdg.cacheHome}/go";
         LESSKEY = "${xdg.cacheHome}/less/key";
-        LESSHISTFILE = "${xdg.cacheHome}/less/history";
+        LESSHISTFILE = "${xdg.dataHome}/less/history";
         NPM_CONFIG_USERCONFIG = "${xdg.configHome}/npm/npmrc";
-        NODE_REPL_HISTORY = "${xdg.cacheHome}/node_repl_history";
+        NODE_REPL_HISTORY = "${xdg.dataHome}/node/node_repl_history";
         # elixir
         MIX_HOME = "${xdg.cacheHome}/mix";
         HEX_HOME = "${xdg.cacheHome}/hex";
-        MYSQL_HISTFILE = "${xdg.cacheHome}/mysql/history";
+        MYSQL_HISTFILE = "${xdg.dataHome}/mysql/history";
         PLTUSERHOME = "${xdg.cacheHome}/racket";
         PSQLRC = "${xdg.configHome}/pg/psqlrc";
-        PSQL_HISTORY = "${xdg.cacheHome}/pg/psql_history";
+        PSQL_HISTORY = "${xdg.dataHome}/pg/psql_history";
         PGPASSFILE = "${xdg.cacheHome}/pg/pgpass";
         PGSERVICEFILE = "${xdg.cacheHome}/pg/pg_service.conf";
         RIPGREP_CONFIG_PATH = "$HOME/.config/ripgrep/config";
-        REDISCLI_HISTFILE = "${xdg.cacheHome}/redis/rediscli_history";
+        REDISCLI_HISTFILE = "${xdg.dataHome}/redis/rediscli_history";
         REDISCLI_RCFILE = "${xdg.configHome}/redis/redisclirc";
         SOLARGRAPH_CACHE = "${xdg.cacheHome}";
+        SQLITE_HISTORY = "${xdg.dataHome}/sqlite/sqlite_history";
         # X related 
         XCOMPOSEFILE = "${xdg.cacheHome}/X11/xcompose";
         XCOMPOSECACHE = "${xdg.cacheHome}/X11/xcompose";
-        ERRFILE = "${xdg.cacheHome}/X11/xsession-errors";
+        ERRFILE = "${xdg.dataHome}/X11/xsession-errors";
       };
 
       programs.gpg = { homedir = "${xdg.dataHome}/gnupg"; };
