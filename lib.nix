@@ -37,6 +37,8 @@
         # elixir
         MIX_HOME = "${xdg.cacheHome}/mix";
         HEX_HOME = "${xdg.cacheHome}/hex";
+        # dotnet
+        NUGET_PACKAGES = "${xdg.cacheHome}/NuGetPackages";
         MYSQL_HISTFILE = "${xdg.dataHome}/mysql/history";
         PLTUSERHOME = "${xdg.cacheHome}/racket";
         PSQLRC = "${xdg.configHome}/pg/psqlrc";
